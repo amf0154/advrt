@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} and #{homeInfo.body}
+  form(action='/api/adduser', method='POST')
+    p
+      | name: 
+      input(type='text', name='name', value='')
+      |          group: 
+      input(type='text', name='group', value='')
+    input(type='submit', value='Submit')

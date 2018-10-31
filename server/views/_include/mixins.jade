@@ -1,0 +1,25 @@
+mixin formatDate(dateString)
+  - var date = new Date(dateString);
+  - var monthNames = ["January", "February", "March", "April", "May", "June", "Jule", "August", "September", "October", "November", "December"];
+  - var d = date.getDate();
+  - var m = monthNames[date.getMonth()];
+  - var y = date.getFullYear();
+  - var output = d + ' ' + m + ' ' + y;
+  = output
+  
+mixin outputComments(comments)
+ - each value in comments.length ? comments : ['There are no values']
+    .p-3.mb-2.bg-light.rounded
+     b.font-italic= value.author
+     a.float-right
+          +formatDate(value.createdOn)
+     hr
+     p.mb-0= value.commentText
+
+mixin outputAdvts(adverts)
+ - each advt in adverts.length ? adverts : ['There are no values']
+    .p-3.mb-2.bg-light.rounded
+     h4.font-italic= advt.title
+                  a.btn.btn-link.btn-sm.float-right(href='#') topic
+                p.mb-0= advt.fullstory
+                  a.btn.btn-secondary.btn-sm.float-right.mt-1(href='/view/#{advt._id}') Read this advert     
