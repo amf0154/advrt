@@ -13,6 +13,22 @@
     });
  };
 
+ module.exports.delUserPage = function(req, res) {
+    res.render('deluser', {
+        title: 'del user',
+        homeInfo: {
+            body: 'this page for delteing user by id'
+        }
+    });
+ };
+ module.exports.updUserPage = function(req, res) {
+    res.render('updateu', {
+        title: 'add new user',
+        homeInfo: {
+            body: 'relax'
+        }
+    });
+ };
  module.exports.aboutPage = function(req, res) {
     res.render('about', {
         title: 'add new user',

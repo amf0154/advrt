@@ -1,3 +1,4 @@
+// http://jasonwatmore.com/post/2018/06/14/nodejs-mongodb-simple-api-for-authentication-registration-and-user-management
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = require('../models/users');
- 
+const userService = require('../services/user.service');
 
 var sendJsonResponse = function(res, status, content){
     res.status(status);
@@ -9,13 +9,31 @@ var sendJsonResponse = function(res, status, content){
 
 
 
+module.exports.addNewUser = function (req, res, next) {
+    userService.create(req.body)
+        .then(() => res.json({}))
+        .catch(err => next(err));
+};
 
+module.exports.delUser = function (req, res, next) {
+    userService.delete_user(req.body.id);
+};
+
+module.exports.updUser = function (req, res, next) {
+    userService.update(req.body.id, req.body)
+        .then(() => res.json({}))
+        .catch(err => next(err));
+};
+
+/*
 module.exports.AddNewUser = function (req, res) {
-    if(req.body.name && req.body.group){
+    if(req.body.username){
         var newUser = new User();
-        newUser.name = req.body.name;
-        newUser.idgroup = req.body.group;
-        newUser.registeredDate = new Date();  
+        newUser.username = req.body.username;
+        newUser.hash = req.body.hash;
+        newUser.firstName = req.body.firstName;
+        newUser.lastName = req.body.lastName;
+        newUser.createdDate = new Date(); 
         newUser.save(function(err){
           if(err){
             console.log(err);
@@ -28,6 +46,7 @@ module.exports.AddNewUser = function (req, res) {
     }    
 };
 
+*/
 
 module.exports.getUserById = function (req, res) {
   if(req.params.id){

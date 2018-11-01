@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p #{homeInfo.body}
+  form(action='/api/deluser', method='POST')
+    p
+      | id user for deleting: 
+      input(type='text', name='id', value='')
+    input(type='submit', value='Submit')

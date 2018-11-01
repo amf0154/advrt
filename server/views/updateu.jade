@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} and #{homeInfo.body}
+  form(action='/api/upduser', method='POST')
+    p
+      | id: 
+      input(type='text', name='id', value='')
+      | username: 
+      input(type='text', name='username', value='')
+      |          firstname: 
+      input(type='text', name='firstName', value='')
+      |          lastname: 
+      input(type='text', name='lastName', value='')
+      |          password: 
+      input(type='password', name='hash', value='')
+    input(type='submit', value='Submit')

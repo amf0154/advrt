@@ -5,8 +5,12 @@ block content
   p Welcome to #{title} and #{homeInfo.body}
   form(action='/api/adduser', method='POST')
     p
-      | name: 
-      input(type='text', name='name', value='')
-      |          group: 
-      input(type='text', name='group', value='')
+      | username: 
+      input(type='text', name='username', value='')
+      |          firstname: 
+      input(type='text', name='firstName', value='')
+      |          lastname: 
+      input(type='text', name='lastName', value='')
+      |          password: 
+      input(type='password', name='hash', value='')
     input(type='submit', value='Submit')
