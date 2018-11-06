@@ -1,6 +1,6 @@
  var request = require('request');
  const appURL = 'https://uqpi8t76.apps.lair.io';
-
+const bcrypt = require('bcryptjs');
 // https://www.djamware.com/post/5b00bb9180aca726dee1fd6d/mean-stack-angular-6-crud-web-application
 // 
 // 
@@ -13,6 +13,14 @@
     });
  };
 
+ module.exports.authUserPage = function(req, res) {
+    res.render('auth', {
+        title: 'auth user',
+        homeInfo: {
+            body: 'this page for auth user by login and password'
+        }
+    });
+ };
  module.exports.delUserPage = function(req, res) {
     res.render('deluser', {
         title: 'del user',

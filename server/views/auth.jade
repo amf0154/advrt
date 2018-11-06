@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p #{homeInfo.body}
+  form(action='/api/auth', method='POST')
+    p
+      | login : 
+      input(type='text', name='username', value='')
+      | password: 
+      input(type='text', name='hash', value='')
+    input(type='submit', value='Submit')
